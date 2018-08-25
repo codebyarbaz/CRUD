@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/model.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <div id="container">
+        <div class="op create">
+            <h3>Create Operation</h3>
+            <form action="/create" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter ID" ng-model="stu.id" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Name" ng-model="stu.name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Roll No." ng-model="stu.roll" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Branch" ng-model="stu.branch" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Shift" ng-model="stu.shift" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" ng-click="createStudent()">Create Student</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="op read">
+            <h3>Read Operation</h3>
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Enter ID" name="stuid" ng-model="stuid" required>
+                    </td>
+                    <td>
+                        <p>{{info}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button ng-click="readStudentsbyID()">Read Students By ID</button>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <button ng-click="readAllStudents()">Read All Students</button>
+                    </td>
+                </tr>
+            </table>
+            <div id="allstudents">
+                <div>
+                    <ul>
+                        <li>Key: {{student._id}}</li>
+                        <li>ID is: {{student.id}}</li>
+                        <li>Name is: {{student.name}}</li>
+                        <li>Roll No. is: {{student.roll}}</li>
+                        <li>Branch is: {{student.branch}}</li>
+                        <li>Shift is: {{student.shift}}</li>
+                    </ul>
+                </div>
+                <div ng-repeat="key in data.data">
+                    <ul>
+                        <li>Key: {{key._id}}</li>
+                        <li>ID is: {{key.id}}</li>
+                        <li>Name is: {{key.name}}</li>
+                        <li>Roll No. is: {{key.roll}}</li>
+                        <li>Branch is: {{key.branch}}</li>
+                        <li>Shift is: {{key.shift}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="op update">
+            <h3>Update Operation</h3>
+            <form action="/update" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Key" ng-model="up.id" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Name" ng-model="up.name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Roll No." ng-model="up.roll" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Branch" ng-model="up.branch" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Shift" ng-model="up.shift" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button ng-click="updateStudentbyID()">Update Student By ID</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="op delete">
+            <h3>Delete Operation</h3>
+            <form action="/delete" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Enter Key" ng-model="del.key" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button ng-click="deleteStudent() ">Delete Student Details By Key</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <table>
+                <tr>
+                    <td>
+                        <button ng-click="deleteAllStudents()">Delete All Student Details</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

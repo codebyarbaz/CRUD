@@ -1,0 +1,32 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#container .op {
+    border: 2px solid silver;
+    padding: 20px;
+    margin: 10px 20px;
+}
+
+#allstudents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#allstudents div {
+    border: 2px solid silver;
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+ul {
+    padding: 0px;
+    margin: 20px;
+}
+
+ul li {
+    list-style: none;
+}
